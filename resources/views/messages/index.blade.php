@@ -12,5 +12,5 @@
     </ul>
 </div>
 <div class="input-text">
-    <input type="text" name="message" class="submit">
+    <input id="input_area" type="text" name="message" class="submit">
 </div>

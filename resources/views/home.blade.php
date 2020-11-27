@@ -61,6 +61,7 @@
                 if (receiver_id == data.from) {
                     //if receiver is selected reload the selected user;
                     $('#'+data.from).click();
+                    
                 } else{
                     //if receiver is not selected add notification for that user;
                     var pending = parseInt($('#'+data.from).find('.pending').html());
@@ -90,6 +91,7 @@
                 success: function (data){
                     $('#messages').html(data);
                     scrollToBottomFunc();
+                    $('#input_area').focus();
                 }
 
             });
@@ -122,6 +124,8 @@
                     },
                     complete:function (){
                         scrollToBottomFunc();
+                        $('#input_area').focus();
+
                     },
                 });
             }
