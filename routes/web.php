@@ -13,12 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
+Route::group(['middleware' => 'auth'], function () {
+Route::get('/', function () {
+    return redirect('/home');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('message/{id}', [App\Http\Controllers\HomeController::class, 'get_messages'])->name('message');
 Route::post('message', [App\Http\Controllers\HomeController::class, 'send_message']);
+
+});
